@@ -8,9 +8,12 @@ module.exports = {
             message.reply("Please specify a report ID to delete.")
             return
         }
+
+        const origin = process.env.ORIGIN_URL
+
         await axios({
             method: 'post',
-            url: `${process.env.ORIGIN_URL}/deleteReport`,
+            url: `https://${origin}/deleteReport`,
             headers: {
                 'Content-Type': 'application/json',
                 'ReportsAccessCode': process.env.REPORTS_ACCESS_CODE

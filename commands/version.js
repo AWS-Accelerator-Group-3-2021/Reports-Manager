@@ -4,9 +4,11 @@ module.exports = {
     name: "version",
     description: "Gets the current version of the reports system.",
     async execute(message, args) {
+        const origin = process.env.ORIGIN_URL
+        
         await axios({
             method: 'get',
-            url: `${process.env.ORIGIN_URL}/ping`,
+            url: `https://${origin}/ping`,
             headers: {},
             data: {}
         })

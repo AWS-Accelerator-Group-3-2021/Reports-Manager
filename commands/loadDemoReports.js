@@ -4,9 +4,11 @@ module.exports = {
     name: "loadDemoReports",
     description: "Loads demo reports onto the server's database.",
     async execute(message, args) {
+        const origin = process.env.ORIGIN_URL
+
         await axios({
             method: 'get',
-            url: `${process.env.ORIGIN_URL}/${process.env.ADMIN_PASS}/loadDemoReports`,
+            url: `https://${origin}/${process.env.ADMIN_PASS}/loadDemoReports`,
             headers: {},
             data: {}
         })

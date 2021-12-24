@@ -3,6 +3,7 @@ const clearReports = require('./commands/clearReports')
 const clearTokens = require('./commands/clearTokens')
 const deleteReport = require('./commands/deleteReport')
 const loadDemoReports = require('./commands/loadDemoReports')
+const reloadDataFiles = require('./commands/reloadDataFiles')
 const sendSampleReport = require('./commands/sendSampleReport')
 const status = require('./commands/status')
 const version = require('./commands/version')
@@ -57,6 +58,9 @@ bot.on('message', message => {
             break
         case 'sendSampleReport':
             sendSampleReport.execute(message, args)
+            break
+        case 'reloadDataFiles':
+            reloadDataFiles.execute(message, args)
             break
     }
 })

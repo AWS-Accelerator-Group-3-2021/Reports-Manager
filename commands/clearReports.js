@@ -4,9 +4,11 @@ module.exports = {
     name: "clearReports",
     description: "Clears all reports from the system.",
     async execute(message, args) {
+        const origin = process.env.ORIGIN_URL
+
         await axios({
             method: 'get',
-            url: `${process.env.ORIGIN_URL}/${process.env.ADMIN_PASS}/clearReports`,
+            url: `https://${origin}/${process.env.ADMIN_PASS}/clearReports`,
             headers: {},
             data: {}
         })

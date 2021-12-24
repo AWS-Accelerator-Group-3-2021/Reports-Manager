@@ -18,9 +18,12 @@ module.exports = {
         var currentTime = new Date().toISOString()
         currentTime = currentTime.substring(0, currentTime.length - 5) + ' GMT'
         var uuid = makeRandomString()
+
+        const origin = process.env.ORIGIN_URL
+        
         await axios({
             method: 'post',
-            url: `${process.env.ORIGIN_URL}/newReport`,
+            url: `https://${origin}/newReport`,
             headers: {
                 'Content-Type': 'application/json',
                 'ReportsAccessCode': process.env.REPORTS_ACCESS_CODE

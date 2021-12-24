@@ -62,6 +62,18 @@ bot.on('message', message => {
         case 'reloadDataFiles':
             reloadDataFiles.execute(message, args)
             break
+        case 'list':
+            message.reply('List of commands: \n\n' +
+                '`clearReports` - Clears all reports.\n' +
+                '`clearTokens` - Clears all tokens.\n' +
+                '`version` - Gets the current version of the reports system.\n' +
+                '`loadDemoReports` - Loads demo reports.\n' +
+                '`deleteReport` - Deletes a report.\n' +
+                '`status` - Checks if the reports system is online or not.\n' +
+                '`sendSampleReport` - Sends a sample report.\n' +
+                '`reloadDataFiles` - Reloads data files.\n' +
+                '`list` - Lists all commands.')
+            break
     }
 })
 

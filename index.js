@@ -9,13 +9,15 @@ const sendSampleReport = require('./commands/sendSampleReport')
 const status = require('./commands/status')
 const updateSettings = require('./commands/updateSettings')
 const version = require('./commands/version')
+const logger = require('./external/logger')
 const bot = new Discord.Client()
 require('dotenv').config()
+// Import Logger class from logger.js
 
 const PREFIX = 'r!'
 
 bot.on('ready', () => {
-    console.log("Reports manager is up and running!")
+    logger.log("Reports Manager bot is up and running!")
 })
 
 bot.on('message', message => {

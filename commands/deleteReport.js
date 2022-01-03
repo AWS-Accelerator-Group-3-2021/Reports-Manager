@@ -3,17 +3,15 @@ const axios = require('axios')
 module.exports = {
     name: "deleteReport",
     description: "Deletes a report from the reports system.",
-    async execute(message, args) {
+    async execute(message, args, origin) {
         if (!args[1]) {
             message.reply("Please specify a report ID to delete.")
             return
         }
 
-        const origin = process.env.ORIGIN_URL
-
         await axios({
             method: 'post',
-            url: `https://${origin}/deleteReport`,
+            url: `http://${origin}/deleteReport`,
             headers: {
                 'Content-Type': 'application/json',
                 'ReportsAccessCode': process.env.REPORTS_ACCESS_CODE

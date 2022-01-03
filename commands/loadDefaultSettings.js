@@ -3,11 +3,10 @@ const axios = require('axios')
 module.exports = {
     name: "loadDefaultSettings",
     description: "Loads the default settings for the server.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
-            url: `https://${origin}/${process.env.ADMIN_PASS}/loadDefaultSettings`,
+            url: `http://${origin}/${process.env.ADMIN_PASS}/loadDefaultSettings`,
             headers: {},
             data: {}
         })

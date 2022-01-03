@@ -3,12 +3,10 @@ const axios = require('axios')
 module.exports = {
     name: "clearReports",
     description: "Clears all reports from the system.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
-
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
-            url: `https://${origin}/${process.env.ADMIN_PASS}/clearReports`,
+            url: `http://${origin}/${process.env.ADMIN_PASS}/clearReports`,
             headers: {},
             data: {}
         })

@@ -3,7 +3,7 @@ const axios = require('axios')
 module.exports = {
     name: "updateSettings",
     description: "Updates the server settings.",
-    async execute(message, args) {
+    async execute(message, args, origin) {
         if (!args[1]) {
             message.reply("Please specify either `true` or `false` for the `loginAlertsEnabled` setting! :negative_squared_cross_mark:")
             return
@@ -24,13 +24,11 @@ module.exports = {
             console.log("Error in parsing authTokenExpirationTime as integer: " + err)
             return
         }
-
-        const origin = process.env.ORIGIN_URL
         const admin_pass = process.env.ADMIN_PASS
 
         await axios({
             method: 'post',
-            url: `https://${origin}/${admin_pass}/updateSettings`,
+            url: `http://${origin}/${admin_pass}/updateSettings`,
             headers: {},
             data: {
                 "data": {

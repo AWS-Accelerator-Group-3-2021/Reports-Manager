@@ -3,12 +3,10 @@ const axios = require('axios')
 module.exports = {
     name: "status",
     description: "Checks if the report system is online or not.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
-
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
-            url: `https://${origin}/ping`,
+            url: `http://${origin}/ping`,
             headers: {},
             data: {}
         })

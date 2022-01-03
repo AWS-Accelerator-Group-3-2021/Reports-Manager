@@ -9,13 +9,17 @@ const sendSampleReport = require('./commands/sendSampleReport')
 const status = require('./commands/status')
 const updateSettings = require('./commands/updateSettings')
 const version = require('./commands/version')
+const logger = require('./external/logger')
 const bot = new Discord.Client()
 require('dotenv').config()
+// Import Logger class from logger.js
 
 const PREFIX = 'r!'
 
+var origin = process.env.ORIGIN_URL
+
 bot.on('ready', () => {
-    console.log("Reports manager is up and running!")
+    logger.log("Reports Manager bot is up and running!")
 })
 
 bot.on('message', message => {
@@ -41,34 +45,46 @@ bot.on('message', message => {
     var args = message.content.substring(PREFIX.length).split(" ")
     switch (args[0]) {
         case 'clearReports':
-            clearReports.execute(message, args)
+            clearReports.execute(message, args, origin)
             break
         case 'clearTokens':
-            clearTokens.execute(message, args)
+            clearTokens.execute(message, args, origin)
             break
         case 'version':
-            version.execute(message, args)
+            version.execute(message, args, origin)
             break
         case 'loadDemoReports':
-            loadDemoReports.execute(message, args)
+            loadDemoReports.execute(message, args, origin)
             break
         case 'deleteReport':
-            deleteReport.execute(message, args)
+            deleteReport.execute(message, args, origin)
             break
         case 'status':
-            status.execute(message, args)
+            status.execute(message, args, origin)
             break
         case 'sendSampleReport':
-            sendSampleReport.execute(message, args)
+            sendSampleReport.execute(message, args, origin)
             break
         case 'reloadDataFiles':
-            reloadDataFiles.execute(message, args)
+            reloadDataFiles.execute(message, args, origin)
             break
         case 'updateSettings':
-            updateSettings.execute(message, args)
+            updateSettings.execute(message, args, origin)
             break
         case 'loadDefaultSettings':
-            loadDefaultSettings.execute(message, args)
+            loadDefaultSettings.execute(message, args, origin)
+            break
+        case 'changeInternalURL':
+            var newOriginURL = args.slice(1).join(' ')
+            if (newOriginURL.length > 0) {
+                origin = newOriginURL
+                message.reply(`Changed internal target URL to ${origin} :white_check_mark:`)
+            } else {
+                message.reply(`Please provide a new internal target URL. :negative_squared_cross_mark: :warning:`)
+            }
+            break
+        case 'currentInternalURL':
+            message.reply(`The internal target URL is currently ${origin} :white_check_mark:`)
             break
         case 'list':
             message.reply('List of commands: \n\n' +

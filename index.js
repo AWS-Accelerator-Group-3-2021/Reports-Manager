@@ -83,6 +83,9 @@ bot.on('message', message => {
                 message.reply(`Please provide a new internal target URL. :negative_squared_cross_mark: :warning:`)
             }
             break
+        case 'currentInternalURL':
+            message.reply(`The internal target URL is currently ${origin} :white_check_mark:`)
+            break
         case 'list':
             message.reply('List of commands: \n\n' +
                 '`clearReports` - Clears all reports.\n' +

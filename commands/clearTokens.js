@@ -8,7 +8,7 @@ module.exports = {
 
         await axios({
             method: 'get',
-            url: `https://${origin}/${process.env.ADMIN_PASS}/clearTokens`,
+            url: `http://${origin}/${process.env.ADMIN_PASS}/clearTokens`,
             headers: {},
             data: {}
         })

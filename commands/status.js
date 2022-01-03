@@ -8,7 +8,7 @@ module.exports = {
 
         await axios({
             method: 'get',
-            url: `https://${origin}/ping`,
+            url: `http://${origin}/ping`,
             headers: {},
             data: {}
         })

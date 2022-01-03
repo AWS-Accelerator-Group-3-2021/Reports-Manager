@@ -13,7 +13,7 @@ module.exports = {
 
         await axios({
             method: 'post',
-            url: `https://${origin}/deleteReport`,
+            url: `http://${origin}/deleteReport`,
             headers: {
                 'Content-Type': 'application/json',
                 'ReportsAccessCode': process.env.REPORTS_ACCESS_CODE

@@ -7,7 +7,7 @@ module.exports = {
         const origin = process.env.ORIGIN_URL
         await axios({
             method: 'get',
-            url: `https://${origin}/${process.env.ADMIN_PASS}/loadDefaultSettings`,
+            url: `http://${origin}/${process.env.ADMIN_PASS}/loadDefaultSettings`,
             headers: {},
             data: {}
         })

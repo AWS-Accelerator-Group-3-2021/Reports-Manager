@@ -8,7 +8,7 @@ module.exports = {
 
         await axios({
             method: 'get',
-            url: `https://${origin}/${process.env.ADMIN_PASS}/loadDemoReports`,
+            url: `http://${origin}/${process.env.ADMIN_PASS}/loadDemoReports`,
             headers: {},
             data: {}
         })

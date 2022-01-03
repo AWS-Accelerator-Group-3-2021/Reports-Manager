@@ -3,9 +3,7 @@ const axios = require('axios')
 module.exports = {
     name: "version",
     description: "Gets the current version of the reports system.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
-        
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
             url: `http://${origin}/ping`,

@@ -3,9 +3,7 @@ const axios = require('axios')
 module.exports = {
     name: "clearTokens",
     description: "Clears all tokens and hence auth sessions from the system.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
-
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
             url: `http://${origin}/${process.env.ADMIN_PASS}/clearTokens`,

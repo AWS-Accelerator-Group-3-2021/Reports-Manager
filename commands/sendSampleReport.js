@@ -3,7 +3,7 @@ const axios = require('axios')
 module.exports = {
     name: "sendSampleReport",
     description: "Adds a sample report into the system.",
-    async execute(message, args) {
+    async execute(message, args, origin) {
         function makeRandomString() {
             var dt = new Date().getTime();
             var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -18,8 +18,6 @@ module.exports = {
         var currentTime = new Date().toISOString()
         currentTime = currentTime.substring(0, currentTime.length - 5) + ' GMT'
         var uuid = makeRandomString()
-
-        const origin = process.env.ORIGIN_URL
         
         await axios({
             method: 'post',

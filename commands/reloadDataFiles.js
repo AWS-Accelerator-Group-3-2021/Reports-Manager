@@ -3,8 +3,7 @@ const axios = require('axios')
 module.exports = {
     name: "reloadDataFiles",
     description: "Re-reads the server's data files that store the reports.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
             url: `http://${origin}/${process.env.ADMIN_PASS}/reloadDataFiles`,

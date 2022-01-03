@@ -3,9 +3,7 @@ const axios = require('axios')
 module.exports = {
     name: "loadDemoReports",
     description: "Loads demo reports onto the server's database.",
-    async execute(message, args) {
-        const origin = process.env.ORIGIN_URL
-
+    async execute(message, args, origin) {
         await axios({
             method: 'get',
             url: `http://${origin}/${process.env.ADMIN_PASS}/loadDemoReports`,

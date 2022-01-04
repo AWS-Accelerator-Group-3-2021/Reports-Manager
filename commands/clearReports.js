@@ -6,7 +6,7 @@ module.exports = {
     async execute(message, args, origin) {
         await axios({
             method: 'get',
-            url: `http://${origin}/${process.env.ADMIN_PASS}/clearReports`,
+            url: `https://${origin}/${process.env.ADMIN_PASS}/clearReports`,
             headers: {},
             data: {}
         })

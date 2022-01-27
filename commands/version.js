@@ -6,7 +6,7 @@ module.exports = {
     async execute(message, args, origin) {
         await axios({
             method: 'get',
-            url: `https://${origin}/ping`,
+            url: `${origin}/ping`,
             headers: {},
             data: {}
         })

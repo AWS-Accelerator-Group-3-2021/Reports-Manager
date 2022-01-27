@@ -28,7 +28,7 @@ module.exports = {
 
         await axios({
             method: 'post',
-            url: `https://${origin}/${admin_pass}/updateSettings`,
+            url: `${origin}/${admin_pass}/updateSettings`,
             headers: {},
             data: {
                 "data": {
